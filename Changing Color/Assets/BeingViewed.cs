@@ -39,7 +39,7 @@ public class BeingViewed : MonoBehaviour {
 				}
 
 				//Print info when space is clicked
-				if (Input.GetKeyDown (KeyCode.Space)) {
+				if (Input.GetKeyDown (KeyCode.LeftControl)) {
 					Debug.Log (allObjects[i].name + " is being looked at");
 					Debug.Log (allObjects[i].name + " has been looked at for " + allObjects [i].GetComponent<Count>().count + " seconds");
 				}

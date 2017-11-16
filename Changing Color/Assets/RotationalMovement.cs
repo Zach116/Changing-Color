@@ -8,24 +8,28 @@ public class RotationalMovement : MonoBehaviour {
 
     private void Update()
     {
-		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)){
 			transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
         }
 
-		if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) 
-		{
+		if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey(KeyCode.S)){
 			transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
 		}
 			
-		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
-		{
+		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
 			transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
 		}
 
-		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
-		{
+		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
 			transform.Rotate(-Vector3.up * turnSpeed * Time.deltaTime);
+		}
+
+		if (Input.GetKey (KeyCode.Space)){
+			transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+		}
+
+		if (Input.GetKey (KeyCode.LeftShift)){
+			transform.Translate(-Vector3.up * moveSpeed * Time.deltaTime);
 		}
     }
 }
