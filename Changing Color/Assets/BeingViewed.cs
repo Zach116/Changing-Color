@@ -33,13 +33,15 @@ public class BeingViewed : MonoBehaviour {
 				//Change color of the object that is being looked at
 				allObjects[i].GetComponent<Renderer>().material.color = Random.ColorHSV();
 
-				//Add one to the count
-				allObjects[i].GetComponent<Count>().AddOneCount();
+				//Add one to the count if the object has a count script variable
+				if (allObjects [i].GetComponent<Count> () != null) {
+					allObjects [i].GetComponent<Count> ().AddOneCount ();
+				}
 
 				//Print info when space is clicked
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					Debug.Log (allObjects[i].name + " is being looked at");
-					Debug.Log (allObjects[i].name + " has been looked at " + allObjects [i].GetComponent<Count>().count + " seconds");
+					Debug.Log (allObjects[i].name + " has been looked at for " + allObjects [i].GetComponent<Count>().count + " seconds");
 				}
 			}
 		}

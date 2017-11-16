@@ -15,7 +15,7 @@ public class CameraLocation : MonoBehaviour {
 
 		//Print info when space is clicked
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Debug.Log (currentPos);
+			Debug.Log ("The camera is located at " + currentPos);
 		}
 	}
 }
