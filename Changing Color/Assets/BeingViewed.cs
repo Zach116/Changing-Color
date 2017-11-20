@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,7 @@ public class BeingViewed : MonoBehaviour {
 	private Collider anObjCollider;
 	private Camera cam;
 	private Plane[] planes;
+	public int timeUntilChange = 5;
 
 	void Start() {
 		foreach (var objects in  GameObject.FindObjectsOfType<GameObject>()) {
@@ -29,13 +30,13 @@ public class BeingViewed : MonoBehaviour {
 			anObjCollider = allObjects[i].GetComponent<Collider>();
 
 			//Detect if object is in the view of the camera
-			if (GeometryUtility.TestPlanesAABB (planes, anObjCollider.bounds)) {
+			if (GeometryUtility.TestPlanesAABB (planes, anObjCollider.bounds) && ((allObjects[i].GetComponent<Count>().count % timeUntilChange) == 0)) {
 				//Change color of the object that is being looked at
 				allObjects[i].GetComponent<Renderer>().material.color = Random.ColorHSV();
 
 				//Add one to the count if the object has a count script variable
-				if (allObjects [i].GetComponent<Count> () != null) {
-					allObjects [i].GetComponent<Count> ().AddOneCount ();
+				if (allObjects[i].GetComponent<Count> () != null) {
+					allObjects[i].GetComponent<Count> ().AddOneCount ();
 				}
 
 				//Print info when space is clicked
