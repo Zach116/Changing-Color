@@ -40,7 +40,7 @@ public class BeingViewed : MonoBehaviour {
 				}
 
 				//When the object has been looked at for a set amount of time, do something
-				if ((allObjects[i].GetComponent<Count> ().count % timeUntilChange) == 0) {
+				if (((allObjects[i].GetComponent<Count> ().count % timeUntilChange) >= 0) && ((allObjects[i].GetComponent<Count> ().count % timeUntilChange) <= 0.1)) {
 					//Change color of the object that is being looked at
 					allObjects[i].GetComponent<Renderer> ().material.color = Random.ColorHSV ();
 				}
